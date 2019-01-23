@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="monster.css" />
+		<script src="bestiary1.js"></script>
+		<script src="bestiary2.js"></script>
+		<script src="bestiary3.js"></script>
+		<script src="bestiary4.js"></script>
+		<script src="bestiary5.js"></script>
+		<script src="bestiary6.js"></script>
+		<script src="bonus.js"></script>
+		<script src="dmg.js"></script>
+		<script src="monstercodex.js"></script>
+		<script src="npccodex.js"></script>
+		<script src="villaincodex.js"></script>
+		<script src="botd.js"></script>
+		<script src="planar.js"></script>
+		<script src="horror.js"></script>
+		<script src="enviroment.js"></script>
+		<script src="gods.js"></script>
+		<script src="monster_fn.js"></script>
+		<script src="monster.js"></script>
+		<title>Random Monster</title>
+		<meta charset="UTF-8"> 
+	</head>
+<body>
+	<form name="monster">
+		<table summary="Form Table" border="0" cellpadding="2" id="formTable">
+			<tr>
+				<td colspan="4">	 
+					<label>Average Party Level / <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Challenge Rating: </label> <br/>
+					<input type="checkbox" name="Use CR" value="useCR" id="useCR" onchange="toggleDisabled(this.checked, 'cr_mon');preCheck()"> 
+					<select name="Monster CR" id="cr_mon" disabled onchange="preCheck()">
+						<option value="-4">1/8</option>
+						<option value="-3">1/6</option>
+						<option value="-2">1/4</option>
+						<option value="-1">1/3</option>
+						<option value="0" selected>1/2</option>
+						<script>optionboxes(30,1);</script>
+					</select>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<label> Challenge Rating Variation: </label> <br/>
+					<input type="checkbox" name="Use Variation" value="useVar" id="useVar" onchange="toggleDisabled(this.checked, 'var_mon');preCheck()">
+					<select name="Monster CR Variation" id="var_mon" disabled onchange="preCheck()">
+						<script>optionboxes(4,1);</script>
+					</select>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<label> Monster Type: </label> <br/>
+					<input type="checkbox" name="Use Type" value="useType" id="useType" onchange="toggleDisabled(this.checked, 'type_mon');preCheck()">
+					<select name="Type" id="type_mon" disabled onchange="preCheck()">
+						<script>typeboxes();</script>
+					</select>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<label> Monster Terrain: </label> <br/>
+					<input type="checkbox" name="Use Terrain" value="useTerrain" id="useTerrain" onchange="toggleDisabled(this.checked, 'terrain_mon');preCheck()">
+					<select name="Terrain" id="terrain_mon" disabled onchange="preCheck()">
+						<script>terrainboxes();</script> 
+					</select>
+					<br/>
+				</td>
+			</tr>	 
+			<tr>
+				<td>
+					<label> Number of Monsters: </label> <br/>
+					<input type="number" name="Number of Monster" id="num_mon" value="1" min="1" max="25" onchange="preCheck()"> <br/>
+					<br/>
+				</td>
+				<td colspan="3">
+					<br/>
+					<span id="preCheck"></span> <span id="NumberError" class="error"></span> <br/>
+				</td>
+			</tr>	 
+			<tr>
+				<td>
+					<label> Bestiary </label> <br/>
+					<input type="checkbox" name="Bestiary 1" value="Bestiary 1" id="b1_box" onchange="preCheck()"> <b>Bestiary 1</b> <br />
+					<input type="checkbox" name="Bestiary 2" value="Bestiary 2" id="b2_box" onchange="preCheck()"> <b>Bestiary 2</b> <br/>
+					<input type="checkbox" name="Bestiary 3" value="Bestiary 3" id="b3_box" onchange="preCheck()"> <b>Bestiary 3</b> <br/>
+					<input type="checkbox" name="Bestiary 4" value="Bestiary 4" id="b4_box" onchange="preCheck()"> <b>Bestiary 4</b> <br/>
+					<input type="checkbox" name="Bestiary 5" value="Bestiary 5" id="b5_box" onchange="preCheck()"> <b>Bestiary 5</b> <br/>
+					<input type="checkbox" name="Bestiary 6" value="Bestiary 6" id="b6_box" onchange="preCheck()"> <b>Bestiary 6</b> <br/>
+					<input type="checkbox" name="Bonus Bestiary" value="Bonus Bestiary" id="bonus" onchange="preCheck()"> <b>Bonus Bestiary</b> <br/>
+				</td>
+				<td>
+					<label> NPCs </label> <br/>
+					<input type="checkbox" name="Dungeon Master Guide NPCs" value="Dungeon Master Guide NPCs" id="dmg_box" onchange="preCheck()"> <b>Dungeon Master Guide NPCs</b>	<br/>
+					<input type="checkbox" name="NPC Codex" value="NPC Codex" id="npc_codex_box" onchange="preCheck()"> <b>NPC Codex</b> <br/>
+					<input type="checkbox" name="Monster Codex" value="Monster Codex" id="mon_codex_box" onchange="preCheck()"> <b>Monster Codex</b> <br/>
+					<input type="checkbox" name="vil_codex" value="Villain Codex" id="vil_codex_box" onchange="preCheck()"> <b>Villain Codex</b> <br/>
+				</td>
+				<td>
+					<label> Other Books </label> <br/>
+					<input type="checkbox" name="Inner Sea Gods" value="Inner Sea Gods" id="gods_box" onchange="preCheck()"> <b>Inner Sea Gods</b> <br/>
+					<input type="checkbox" name="Inner Sea World Guide" value="Inner Sea World Guide" id="innersea_box" onchange="preCheck()"> <b>Inner Sea World Guide</b> <br/>
+					<input type="checkbox" name="Book of the Damned" value="Book of the Damned" id="botd_box" onchange="preCheck()"> <b>Book of the Damned</b> <br/>
+					<input type="checkbox" name="Planar Adventures" value="Planar Adventures" id="planar_box" onchange="preCheck()"> <b>Planar Adventures</b> <br/>
+					<input type="checkbox" name="Horror Adventures" value="Horror Adventures" id="horror_box" onchange="preCheck()"> <b>Horror Adventures</b> <br/>
+
+				</td>
+				<td>
+					<label> Enviroment </label> <br/>
+					<input type="checkbox" name="Traps" value="Traps" id="trap_box" onchange="preCheck()"> <b>Traps</b> <br/>
+					<input type="checkbox" name="Hazards" value="Hazards" id="hazard_box" onchange="preCheck()"> <b>Hazards</b> <br/>
+					<input type="checkbox" name="Haunts" value="Haunts" id="haunt_box" onchange="preCheck()"> <b>Haunts</b> <br/>
+				</td>
+			</tr>
+			<tr>
+				<td  colspan="4">
+					<p>
+						<input type="button" onclick="return checkAll();" value="(un)Check All"> 
+						<input type="button" onclick="return checkNPC();" value="(un)Check All NPCs">
+						<input type="button" onclick="return checkTraps();" value="(un)Check All Enviroments"> 
+					</p>
+					<p>
+						<input type="button" id="btn_mon" onclick="return generate();" value="Generate Monster"> 
+						<input type="button" id="btn_enc" onclick="return enc_table();" value="Generate Encounter Table"> <br />
+					</p>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<hr/>
+	<span id='monster'></span>
+	<span id='table'></span>
+	<script type="text/javascript">
+		/**
+		 * Onload check initial available monsters (453 st)
+		 */
+		window.onload = preCheck();
+		
+	</script>
+</body>
+</html>

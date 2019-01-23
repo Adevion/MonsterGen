@@ -1,0 +1,108 @@
+pre {
+	padding: 0px;
+	margin: 0px;
+}
+
+td {
+	text-align: left;
+	vertical-align: top;
+}
+
+input, select, button {
+	color: black;
+	border: 1px solid gray;
+	width: 225px;
+}
+
+caption {
+	font-weight: bold;
+	font-variant: small-caps;
+}
+
+hr {
+	border: 1px solid gray;
+}
+
+input[type="checkbox"] {
+	position: static;
+	width: auto !important;
+	color: black;
+	-ms-transform: scale(1); /* IE */
+	-moz-transform: scale(1); /* FF */
+	-webkit-transform: scale(1); /* Safari and Chrome */
+	-o-transform: scale(1); /* Opera */
+}
+
+#btn_mon:disabled,
+#btn_mon.disabled,
+#btn_enc:disabled,
+#btn_enc.disabled {
+	color: gray;
+	border: 1px solid gray;
+	width: 225px;
+}
+
+#encounterTable {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	fo
+	width: 600px;
+	border-collapse: collapse;
+}
+
+#encounterTable td, #encounterTable th {
+	border: 1px solid gainsboro;
+	padding: 2px;
+}
+
+#encounterTable tr {
+	height: 50px;
+	overflow:hidden;
+}
+
+#encounterTable tr:nth-child(odd) {
+	background-color: gainsboro;
+}
+
+#encounterTable tr:hover {
+	background-color: orange;
+}
+
+#encounterTable th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: gray;
+	color: white;
+}
+
+.sq_row {
+	width: 100%;
+	text-align: left;
+}
+
+.sq_block {
+	padding-left: 12px;
+	display: inline-block;
+	font-size: smaller;
+	text-align: left;
+	vertical-align: top;
+}
+
+.error {
+	color: red;
+	font-style: bold;
+	font-size: smaller;
+	text-align: left;
+}
+
+.cellSmall {
+	width: 60px;
+}
+
+.cellMedium {
+	width: 250px;
+}
+
+.cellLarge {
+	width: 400px;
+}
